@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option csharp_namespace = "gRPC.Server.Api";
+
+import "google/protobuf/empty.proto";
+
+package network;
+
+service NetworkService {
+  rpc SubscribeNetwork (google.protobuf.Empty) returns (stream ConnectedNetwork);
+
+  rpc PushNetworkInterface (ConnectedNetwork) returns (google.protobuf.Empty);
+}
+
+message ConnectedNetwork {
+  string name = 1;
+  string description = 2;
+  string status = 3;
+  string type = 4;
+  int64 speed = 5;
+  string mac_address = 6;
+  repeated string ip_addresses = 7;
+}

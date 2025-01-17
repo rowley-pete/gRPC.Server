@@ -24,6 +24,7 @@ app.MapGrpcReflectionService();
 
 // Configure the HTTP request pipeline.
 app.MapGrpcService<ApiGrpcService>().RequireCors("AllowAll").EnableGrpcWeb();
+app.MapGrpcService<NetworkGrpcService>().RequireCors("AllowAll").EnableGrpcWeb();
 
 app.MapGet("/", () => "Communication with gRPC endpoints must be made through a gRPC client. To learn how to create a client, visit: https://go.microsoft.com/fwlink/?linkid=2086909");
 
