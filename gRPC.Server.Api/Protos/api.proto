@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option csharp_namespace = "gRPC.Server";
+
+import "google/protobuf/empty.proto";
+
+package api;
+
+service ApiService {
+  rpc GetVersion(google.protobuf.Empty) returns (VersionResponse);
+}
+
+message VersionResponse {
+  string version = 1;
+}
